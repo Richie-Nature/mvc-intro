@@ -7,5 +7,10 @@
 <body>
 <p th:text="'Hello, ' + ${name} + '!'"></p>
 <h1 th:each="msg: ${greetings}" th:text="${msg}" th:unless="${msg.contains('Goodbye')}"></h1>
+
+<form th:object="${newMessage}" th:action="@{/greeting}" action="#" method="POST">
+    <input type="text" th:field="*{name}">
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>
